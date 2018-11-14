@@ -1,0 +1,36 @@
+>directory
+dir
+dir a:
+dir a:m*
+dir animate/1*.*
+f:
+dir
+dir lev1/
+
+>change directory
+a:
+cd animate
+dir
+dir ../
+f:
+cd lev1/lev2
+dir
+dir ../
+
+>Type
+type ../l2.txt
+
+>Make directory
+>MKDIR <dir> Makes a new directory
+
+
+>remove directory
+>RMDIR <dir> removes directory and all in and below
+
+
+>Delete file(s)
+>DEL*  <filename> Deletes files (not <dirs>)
+
+>copy file(s), only from one drive to other
+>COPY* <filename> copies files, only from one drive to other
+
