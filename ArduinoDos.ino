@@ -44,8 +44,8 @@ bool flashFound = false;
 //FlashFile MyFlashFile;
 struct AFile   // Advanced file
 	{
-	File MySDFile;
-	FlashFile MyFlashFile;
+	SDFile MySDFile;
+	::File MyFlashFile;
 	};
 
 void setup() 

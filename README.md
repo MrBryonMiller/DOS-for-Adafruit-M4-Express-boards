@@ -37,15 +37,8 @@ FLASHFORMAT Formats drive f: leaving an empty drive
 a:/l1>
 </pre>
 
-To install you need the source files from this repository and you'll need several libraries.  One of those additional libraries is the 
-Adafruit_QSPI-master.  See https://github.com/adafruit/Adafruit_QSPI
+To install you need the source files from this repository and you'll need several libraries. 
+See : Adafruit_QSPI-master https://github.com/adafruit/Adafruit_QSPI
+And : SPIFlash Libraries.AdaFruit https://github.com/adafruit/Adafruit_SPIFlash
 
-Another is SPIFlash Libraries.AdaFruit.  See, but do not download https://github.com/adafruit/Adafruit_SPIFlash
-
-Unfortunately I could not find a way to use this library without editing it.  I put my modified library in a subdirectory for this repository called "Adafruit_SPIFlash-edited"
-
-Editing difference is all whole-word occurrences of "File" where replaced with 
-"FlashFile".  Additionally DEBUG was turned off to prevent duplicate 
-error messages.
-
-The use of "FlashFile" was because I could see of no other way to prevent the compile-time conflict with "File" as used in the SD Library.  There is probably some c++ way to resolve this conflict but I am not well enough informed to find it.
+Original version of this repo required edits to the SPIFlash library.  This is no longer needed.

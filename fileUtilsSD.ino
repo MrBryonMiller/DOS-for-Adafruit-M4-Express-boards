@@ -3,7 +3,7 @@
 
 void copyAtoF(char *sourcepath,char *filename,char *destpath)
 {
-File current;
+SDFile current;
 //if ((current = SD.open(adirectory)) == NULL) 
 if ((current = SD.open(sourcepath)) == NULL) 
 	{
@@ -13,7 +13,7 @@ if ((current = SD.open(sourcepath)) == NULL)
 int count=0;
 while (true) 
 	{
-	File entry =  current.openNextFile();
+	SDFile entry =  current.openNextFile();
 	if (!entry)
 		break;
 	if (!checkmatch(filename,entry.name()))
@@ -43,7 +43,7 @@ strcat (Flashfullname,filename);
 // Serial.print("Checking if  ");Serial.print(Flashfullname);Serial.println(" exists");
 
 // find if file is already there, if so skip
-FlashFile MyFlashFile = fatfs.open(Flashfullname);
+::File MyFlashFile = fatfs.open(Flashfullname);
 if (MyFlashFile)
 	{
 	Serial.print("f:");
@@ -58,7 +58,7 @@ if (strlen(SDfullname) > 1)
 strcat (SDfullname,filename);
 Serial.print("full source name a:");
 Serial.println(SDfullname);
-File MySDFile = SD.open(SDfullname);
+SDFile MySDFile = SD.open(SDfullname);
 if (MySDFile) 
 	{
 	// Check if destination directory exists (note root directory always exists)

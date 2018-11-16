@@ -22,7 +22,7 @@ return false;
 void copyFtoA(char *sourcepath,char *filename,char *destpath)
 {
 bool perform = false;
-FlashFile Flashroot = fatfs.open(sourcepath);
+::File Flashroot = fatfs.open(sourcepath);
 if (Flashroot) 
 	{
 	if (Flashroot.isDirectory())
@@ -33,7 +33,7 @@ else	Serial.println(F("Source Directory not found"));
 int count=0;
 while (perform) 
 	{
-	FlashFile entry =  Flashroot.openNextFile();
+	::File entry =  Flashroot.openNextFile();
 	if (!entry)
 		break;
 	if (!checkmatch(filename,entry.name()))
@@ -63,7 +63,7 @@ strcat (SDfullname,filename);
 // Serial.print("Checking if  ");Serial.print(SDfullname);Serial.println(" exists");
 
 // find if file is already there, if so skip
-File MySDFile = SD.open(SDfullname);
+SDFile MySDFile = SD.open(SDfullname);
 if (MySDFile)
 	{
 	Serial.print("a:");
@@ -79,7 +79,7 @@ if (strlen(Flashfullname) > 1)
 strcat (Flashfullname,filename);
 Serial.print("full source name f:");
 Serial.println(Flashfullname);
-FlashFile MyFlashFile = fatfs.open(Flashfullname);
+::File MyFlashFile = fatfs.open(Flashfullname);
 if (MyFlashFile) 
 	{
 	// Check if destination directory exists (note root directory always exists)

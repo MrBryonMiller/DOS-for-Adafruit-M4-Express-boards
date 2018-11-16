@@ -12,8 +12,15 @@ Serial.println("built from : ");
 Serial.println(buildinfo);
 Serial.print("At :");
 Serial.println(builddate);
-Serial.print("Available RAM ");
-Serial.println (freeram());
+//Serial.print("Available RAM ");
+//Serial.println (freeram());
+//Serial.println();
+if (checkFlashDrive())
+	{
+	Serial.print("Flash total size ");
+	printIntWithComma(flash.pageSize()*flash.numPages());
+	Serial.println(" bytes");
+	}
 Serial.println();
 Serial.println("Following Serial commands are available:");
 Serial.println(" * indicates wildcards ? & * are usable");

@@ -72,7 +72,7 @@ else return tFile.MySDFile.size();
 // following procedure cannot be used since it opens a Flash File
 // once the scope changes from this opening the class is destructed
 
-bool AFfileOpen(int drive,char *filepath,AFile &tFile,FlashFile temp)
+bool AFfileOpen(int drive,char *filepath,AFile &tFile,::File temp)
 {
 if (drive)
 	{
@@ -97,7 +97,7 @@ bool bt;
 if (!defaultDrive && !flashFormatted)
 	Serial.println(F("ignore following message (you have already been told)"));
 #endif
-FlashFile temp = fatfs.open(currentdirectory[defaultDrive]);
+::File temp = fatfs.open(currentdirectory[defaultDrive]);
 if (defaultDrive)
 	{
 	myFile.MyFlashFile = temp;
@@ -190,7 +190,7 @@ getDir(sourcearg,path,currentdirectory[drive]);
 // open fatfs directory regardless even though it may not be needed
 //  must be open at scope of this procedure otherwise destructor 
 //  will be called
-FlashFile temp = fatfs.open(path);
+::File temp = fatfs.open(path);
 if (drive)
 	{
 	parentDir.MyFlashFile = temp;
@@ -291,7 +291,7 @@ if (!defaultDrive && !flashFormatted)
 // open fatfs directory regardless even though it may not be needed
 //  must be open at scope of this procedure otherwise destructor 
 //  will be called
-FlashFile temp = fatfs.open(path);
+::File temp = fatfs.open(path);
 if (drive)
 	{
 	myFile.MyFlashFile = temp;
@@ -338,7 +338,7 @@ if (strlen(ndp))
 	if (!defaultDrive && !flashFormatted)
 		Serial.println(F("ignore following message (you have already been told)"));
 	#endif
-	FlashFile temp = fatfs.open(ndp);
+	::File temp = fatfs.open(ndp);
 	if (defaultDrive)
 		{
 		myFile.MyFlashFile = temp;
