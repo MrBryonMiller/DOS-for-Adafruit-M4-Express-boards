@@ -26,11 +26,11 @@ CD    <dir> Changes the current directory
 MKDIR <dir> Makes a new directory
 RMDIR <dir> removes directory and all in and below
 TYPE  <filename> Prints a file as text
-DEL*  <filename> Deletes files (not <dirs>)
+DEL*  <filename> Deletes files (not directories)
 COPY* <filename> copies files, only from one drive to other
 
 FLASHINFO   Prints info about the Flash
-<Think before using these last two commands>
+<b>Think before using these last two commands</b>
 FLASHERASE  Erase flash so it is completely blank
 FLASHFORMAT Formats drive f: leaving an empty drive
 
@@ -38,7 +38,7 @@ a:/l1>
 </pre>
 
 To install you need the source files from this repository and you'll need several libraries. 
-See : Adafruit_QSPI-master https://github.com/adafruit/Adafruit_QSPI
-And : SPIFlash Libraries.AdaFruit https://github.com/adafruit/Adafruit_SPIFlash
+<br>See : Adafruit_QSPI-master https://github.com/adafruit/Adafruit_QSPI
+<br>And : SPIFlash Libraries.AdaFruit https://github.com/adafruit/Adafruit_SPIFlash
 
 Original version of this repo required edits to the SPIFlash library.  This is no longer needed.
