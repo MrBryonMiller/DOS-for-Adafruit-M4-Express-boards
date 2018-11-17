@@ -26,11 +26,11 @@ CD    <dir> Changes the current directory
 MKDIR <dir> Makes a new directory
 RMDIR <dir> removes directory and all in and below
 TYPE  <filename> Prints a file as text
-DEL*  <filename> Deletes files (not directories)
+DEL*  <filename> Deletes files (not &lt;dirs&gt;)
 COPY* <filename> copies files, only from one drive to other
 
 FLASHINFO   Prints info about the Flash
-<b>Think before using these last two commands</b>
+&lt;Think before using these last two commands&gt;
 FLASHERASE  Erase flash so it is completely blank
 FLASHFORMAT Formats drive f: leaving an empty drive
 
