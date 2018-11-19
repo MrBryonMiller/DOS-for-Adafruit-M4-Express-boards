@@ -4,7 +4,9 @@ I call this sketch Arduino DOS or ADos.  It was made and tested with Adafruit Fe
 
 Once you install this sketch and open the serial monitor you'll have access to your SD card and the onboard Flash memory with a DOS-like set of commands.  You can select which 'drive' you are looking at by entering 'a:' to look at the SD drive or 'f:' to look at the onboard Flash.  If the Onboard Flash is not formatted as a drive you will not be able to select 'f:'.  But you can get the Flash in a usable state by entering 'FLASHERASE' and then 'FLASHFORMAT'.
 
-Notice that you cannot create an entirely new file.  The presumption is that you will put files on the SD card via your host computer.  And then use ADos to copy the files to your flash.  Once the files are organized on your Flash drive you can use other programs to access those files and those other programs won't need an SD card plus they may be able to utilize QSPI speeds to get the data.
+Notice that you cannot use ADos to create an entirely new file.  There are two ways to get Files to the Flash drive. 1) If you have a setup where you have an SD card connected to the same Express board you can put files on the SD card via your host computer.  And then use ADos to copy the files to your flash.  Or 2) you can put your Express board in Circuit Python mode and then double press the reset button on the Express board.  You can then use your host computer to drag files to the flash file system.
+
+Once the files are organized on your Flash drive you can use other programs to access those files and those other programs won't need an SD card plus they may be able to utilize QSPI speeds to get the data.
 
 In order to get a list of the available commands enter 'help'.
 
