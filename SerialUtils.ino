@@ -59,10 +59,12 @@ if (Serial.available() && readline())
 		{
 		Serial.print("Flash chip JEDEC ID: 0x"); 
 		Serial.println(flash.GetJEDECID(), HEX);
+#ifdef __SAMD51__
           Serial.print("Manufacturer ID ");
           Serial.println(flash.readManufacturerID());
           Serial.print("Device ID ");
           Serial.println(flash.readDeviceID());
+#endif
 		handled = true;
           }
 	if (!strcmp(p, "flashformat"))

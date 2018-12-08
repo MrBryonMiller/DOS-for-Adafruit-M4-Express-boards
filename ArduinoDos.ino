@@ -12,8 +12,6 @@ work with M0 Metro's.
 #include <SD.h>
 
 
-// I had to modify the FatFs library to remove a conflict with class "File" 
-//  defined in it, as well as SD.h
 #include "Adafruit_SPIFlash_FatFs.h"
 #define SD_CS    5
 
@@ -22,17 +20,34 @@ work with M0 Metro's.
 // to partition and create the filesystem.
 #include "utility/ff.h"
 
-#ifdef __SAMD51__
 #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
                                               // If you change this be
                                               // sure to change the fatfs
                                               // object type below to match.
+#ifdef __SAMD51__
 #include "Adafruit_QSPI_GD25Q.h"
 Adafruit_QSPI_GD25Q flash;
 
-Adafruit_W25Q16BV_FatFs fatfs(flash);
+#else
+#define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
+                                              // If you change this be
+                                              // sure to change the fatfs
+                                              // object type below to match.
+
+// #if !defined(SS1)
+  // #define FLASH_SS       SS                    // Flash chip SS pin.
+  // #define FLASH_SPI_PORT SPI                   // What SPI port is Flash on?
+  // #define NEOPIN         8
+// #else
+  #define FLASH_SS       SS1                    // Flash chip SS pin.
+  #define FLASH_SPI_PORT SPI1                   // What SPI port is Flash on?
+  #define NEOPIN         40
+// #endif
+
+Adafruit_SPIFlash flash(FLASH_SS, &FLASH_SPI_PORT);     // Use hardware SPI
 
 #endif
+Adafruit_W25Q16BV_FatFs fatfs(flash);
 
 String buildinfo=__FILE__;
 String builddate=__DATE__ " " __TIME__;

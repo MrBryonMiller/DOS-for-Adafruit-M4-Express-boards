@@ -2,7 +2,11 @@
 
 bool checkFlashDrive(void)
 {
+#ifdef __SAMD51__
 if (flash.begin()) 
+#else
+if (flash.begin(FLASH_TYPE))
+#endif
 	{
 	flashFound = true;
 	fatfs.activate();
@@ -200,7 +204,13 @@ Serial.println("Note you will see stat and other debug output printed repeatedly
 Serial.println("Let it run for ~30 seconds until the flash erase is finished.");
 Serial.println("An error or success message will be printed when complete.");
 
+#ifdef __SAMD51__
 flash.chipErase();
+#else
+flash.EraseChip();
+#endif
+
+
 
 Serial.println("Successfully erased chip!");
 return true;
