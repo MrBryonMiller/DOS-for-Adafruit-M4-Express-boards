@@ -41,4 +41,5 @@ To install you need the source files from this repository and you'll need severa
 See : Adafruit_QSPI-master https://github.com/adafruit/Adafruit_QSPI
 And : SPIFlash Libraries.AdaFruit https://github.com/adafruit/Adafruit_SPIFlash
 
-Original version of this repo required edits to the SPIFlash library.  This is no longer needed.
+As of 3/7/19 :
+Note that a change was made to the SPIFlash library (1.1.0) making it no longer compatible with the QSPI library.  Until that problem is corrected you will need to use version 1.0.8 of the SPI Flash library.
